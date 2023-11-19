@@ -13,11 +13,14 @@ import ToDoForm from "./ToDoForm";
 
 function App(): JSX.Element {
   const [tasks, setTasks] = useState(["Do laundry", "Go to gym", "Walk dog"]);
+  const addTask = (taskText: string) => {
+    setTasks([...tasks, taskText]);
+  };
 
   return (
     <SafeAreaView>
-      <ToDoList tasks={tasks}/>
-      <ToDoForm />
+      <ToDoList tasks={tasks} />
+      <ToDoForm addTask={addTask} />
     </SafeAreaView>
   );
 }
